@@ -53,6 +53,7 @@ def write_out(arr, ln):
     for i, subarr in enumerate(arr):
         print(' '*(ln+2) + '|' + ' '*(ln+2) + '|' + ' '*(ln+2))
         for j, item in enumerate(subarr):
+            item = item.replace('\n', '')
             print(' ' + item + ' '*(ln-len(item)), end='')
             if j < 2: print(' |', end='')
         print('\n' + ' '*(ln+2) + '|' + ' '*(ln+2) + '|' + ' '*(ln+2))

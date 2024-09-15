@@ -1,5 +1,3 @@
-import csv
-
 lvl31 = [['а', 'б'], ['в', 'г']]
 lvl3 = [['А', 'Б'], ['В', 'Г']]
 lvl4 = [['I', 'II', 'III', 'IV', 'V', 'VI'],
@@ -26,9 +24,8 @@ def find_coords(coords):
     elif(len(splited_coords) == 4): filename = 'map5.csv'
     elif(len(splited_coords) == 5): filename = 'map6.csv'
 
-    with open(filename, 'r') as read_obj: 
-        csv_reader = csv.reader(read_obj, delimiter=';')
-        fullmap = list(csv_reader)
+    with open(filename, 'r') as file:
+        fullmap = [[x for x in line.split(';')] for line in file]
     
     neighbors = [[]]
     moves = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 0], [0, 1], [1, -1], [1, 0], [1, 1]]

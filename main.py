@@ -24,7 +24,7 @@ def find_coords(coords):
     elif(len(splited_coords) == 4): filename = 'map5.csv'
     elif(len(splited_coords) == 5): filename = 'map6.csv'
 
-    with open(filename, 'r') as file:
+    with open(filename, 'r', encoding='utf-8') as file:
         fullmap = [[x for x in line.split(';')] for line in file]
     
     neighbors = [[]]
@@ -58,6 +58,6 @@ def write_out(arr, ln):
         print('\n' + ' '*(ln+2) + '|' + ' '*(ln+2) + '|' + ' '*(ln+2))
         if i < 2: print('—'*(ln+2) + '+' + '—'*(ln+2) + '+' + '—'*(ln+2))
 
-inp = input('координаты\n> ')
+inp = str(input('координаты\n> '))
 res, ln = find_coords(inp)
 write_out(res, ln)
